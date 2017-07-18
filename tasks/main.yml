@@ -12,6 +12,7 @@
   pip:
     name: pexpect
     state: latest
+  become: true
 
 - name: Clone the repo
   git:

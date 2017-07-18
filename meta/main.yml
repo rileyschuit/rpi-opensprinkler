@@ -1,0 +1,19 @@
+galaxy_info:
+  author: Riley Schuit
+  description: Install OpenSprinkler
+  company: NA
+
+  license: BSD
+
+  min_ansible_version: 1.9.6
+
+  platforms:
+  - name: Rasbian
+    versions:
+    - all
+
+  galaxy_tags:
+    - raspberrypi
+    - opensprinkler
+
+dependencies: []
