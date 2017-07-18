@@ -1,6 +1,4 @@
 ---
 - hosts: localhost
+  connection: local
   remote_user: root
-
-  roles:
-    - - { role: 'git+https://github.com/rileyschuit/rpi-opensprinkler.git' } 
