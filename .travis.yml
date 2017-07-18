@@ -40,6 +40,3 @@ script:
 
   # Run the role/playbook with ansible-playbook.
   - ansible-playbook -i tests/inventory tests/test.yml -vvvv
-
-  # check is the user is created or not
-  - "curl http://localhost:8080"
