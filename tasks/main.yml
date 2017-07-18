@@ -23,15 +23,16 @@
 
 - name: Install OpenSprinkler
   expect:
-    command: /tmp/OpenSprinklerGen2/build.sh ospi
+    chdir: /usr/local/share/OpenSprinklerGen2/
+    command: ./build.sh ospi
     responses:
       (?i)startup: "y"
   become: true
 
 - name: Check service is running
   service:
-    name: OpenSprinkler
-    state: started
+   name: OpenSprinkler
+   state: started
 
 - name: Check web interface
   uri:

@@ -26,6 +26,7 @@ Example Playbook
 - name: Setup OpenSprinkler on the Raspberry Pi
   hosts: all  
   remote_user: pi  
+  become: true  
 
   roles:  
     - role: rpi-opensprinkler  
@@ -40,3 +41,7 @@ Author Information
 ------------------
 
 My goal is to make this as easy as possible and to run over an over again with no headaches.  Feel free to make an issue if something pops up.  Hopefully travis-ci will catch anything in time of you trying this outMy goal is to make this as easy as possible and to run over an over again with no headaches.  In my testing, I used this on a pi0 and pi3.
+
+```
+ansible-galaxy install rileyschuit.rpi-opensprinkler
+```
