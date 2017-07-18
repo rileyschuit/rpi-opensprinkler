@@ -1,0 +1,38 @@
+---
+- name: Assure requirements are installed
+  package:
+     name: "{{ item }}"
+     state: latest
+  with_items:
+    - git
+    - python-pip
+  become: true
+
+- name: Assure python requirements are installed
+  pip:
+    name: pexpect
+    state: latest
+
+- name: Clone the repo
+  git:
+    repo: https://github.com/OpenSprinkler/OpenSprinklerGen2.git
+    dest: /usr/local/share/OpenSprinklerGen2
+    depth: 1
+  become: true
+
+- name: Install OpenSprinkler
+  expect:
+    command: /tmp/OpenSprinklerGen2/build.sh ospi
+    responses:
+      (?i)startup: "y"
+  become: true
+
+- name: Check service is running
+  service:
+    name: OpenSprinkler
+    state: started
+
+- name: Check web interface
+  uri:
+    url: http://localhost:8080
+    return_content: yes
