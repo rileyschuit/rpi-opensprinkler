@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/rileyschuit/rpi-opensprinkler.svg?branch=master)](https://travis-ci.org/rileyschuit/rpi-opensprinkler)  
-  
-## rpi-opensprinkler  
-=========
+
+# rpi-opensprinkler
 
 This role is designed to install OpenSprinkler on the Raspberry Pi  
 
@@ -23,12 +22,14 @@ None
 Example Playbook
 ----------------
 
+```
 - name: Setup OpenSprinkler on the Raspberry Pi
   hosts: all  
   remote_user: pi  
 
   roles:  
     - role: rpi-opensprinkler  
+```
 
 License
 -------
