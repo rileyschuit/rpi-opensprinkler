@@ -38,3 +38,9 @@
   uri:
     url: http://localhost:8080
     return_content: yes
+  register: check_web
+
+- name: A reminder
+  debug:
+    msg: "A reminder that the default password for OpenSprinkler is 'opendoor'"
+  when: check_web|success
