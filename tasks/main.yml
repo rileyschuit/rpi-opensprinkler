@@ -22,11 +22,7 @@
   become: true
 
 - name: Install OpenSprinkler
-  expect:
-    chdir: /usr/local/share/OpenSprinklerGen2/
-    command: ./build.sh ospi
-    responses:
-      (?i)startup: "y"
+  shell: /usr/local/share/OpenSprinklerGen2/build.sh ospi SILENT
   become: true
 
 - name: Check service is running
@@ -43,4 +39,4 @@
 - name: A reminder
   debug:
     msg: "A reminder that the default password for OpenSprinkler is 'opendoor'"
-  when: check_web|success
+  when: check_web.status == "200"
