@@ -22,7 +22,7 @@
   become: true
 
 - name: Install OpenSprinkler
-  shell: /usr/local/share/OpenSprinklerGen2/build.sh ospi SILENT
+  shell: cd /usr/local/share/OpenSprinklerGen2 && ./build.sh ospi -s
   become: true
 
 - name: Check service is running
@@ -39,4 +39,3 @@
 - name: A reminder
   debug:
     msg: "A reminder that the default password for OpenSprinkler is 'opendoor'"
-  when: check_web.status == "200"
